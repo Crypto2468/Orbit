@@ -1,7 +1,9 @@
   import axios from "axios";
 
   const api = axios.create({
-    baseURL: "http://localhost:8000/api",
+    baseURL: import.meta.env.PROD 
+      ? "https://orbit-backend-x8z2.onrender.com/api" 
+      : "http://localhost:8000/api",
   });
 
   api.interceptors.request.use((config) => {
